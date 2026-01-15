@@ -12,7 +12,7 @@ namespace MissingNumberFinder
         /// <returns>The value of the missing integer.</returns>
         public int FindMissingNumber(int[] numbers)
         {
-            var maxNumber = numbers.Max();
+            var maxNumber = numbers.Length; // The length of the array represents the max possible number according to the requirement
             var maximumSum = ((1 + maxNumber) * numbers.Length) / 2; // Calculates the Gaussian sum of (1 + n) * n / 2
             return maximumSum - numbers.Sum();
         }
