@@ -17,7 +17,7 @@ namespace MissingNumberFinder
             var input = Console.ReadLine() ?? throw new ArgumentNullException();
             string inputPatter = @"^\s*\[(?:\s*[0-9]+\s*\,)*(?:\s*[[0-9]+\s*)\]\s*$";
             if (!Regex.IsMatch(input, inputPatter)) throw new FormatException();
-            char[] charsToTrim = ['[', ']']; // Removes asterisks, periods, and spaces
+            char[] charsToTrim = ['[', ']']; // Remove the leading and trailing brackets
             char[] separator = [','];
             return [.. input.Trim(charsToTrim).Split(separator).Select(s => int.Parse(s))];
         }
