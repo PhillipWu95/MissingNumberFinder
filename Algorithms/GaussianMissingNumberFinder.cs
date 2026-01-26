@@ -1,9 +1,11 @@
 ﻿using MissingNumberFinder.Contracts;
 
-namespace MissingNumberFinder
+namespace MissingNumberFinder.Algorithms
 {
     public class GaussianMissingNumberFinder : IMissingNumberFinder
     {
+        public string AlgorithmName => "Gaussian";
+
         /// <summary>
         /// Calculates the missing number by taking the difference between the Gaussian sum and the adhoc sum.
         /// This method assumes the input is correct. i.e. only 1 number is missing and the maximum number is part of the list.
@@ -13,7 +15,7 @@ namespace MissingNumberFinder
         public int FindMissingNumber(int[] numbers)
         {
             var maxNumber = numbers.Length; // The length of the array represents the max possible number according to the requirement
-            var maximumSum = ((1 + maxNumber) * numbers.Length) / 2; // Calculates the Gaussian sum of (1 + n) * n / 2
+            var maximumSum = (1 + maxNumber) * numbers.Length / 2; // Calculates the Gaussian sum of (1 + n) * n / 2
             return maximumSum - numbers.Sum();
         }
     }
