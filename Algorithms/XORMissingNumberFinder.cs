@@ -6,7 +6,9 @@ namespace MissingNumberFinder.Algorithms
     {
         public string AlgorithmName => "XOR";
 
-        public int FindMissingNumber(int[] numbers)
+        public bool SupportFindingMultipleNumbers => false;
+
+        public IEnumerable<int> FindMissingNumber(int[] numbers)
         {
             var result = 0;
             for (var i = 0; i < numbers.Length; i++)
@@ -14,7 +16,7 @@ namespace MissingNumberFinder.Algorithms
                 result ^= i + 1;
                 result ^= numbers[i];
             }
-            return result;
+            return [result];
         }
     }
 }

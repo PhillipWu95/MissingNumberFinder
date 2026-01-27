@@ -7,10 +7,13 @@ namespace MissingNumberFinder
         /// <summary>
         /// Print a number to the console.
         /// </summary>
-        /// <param name="number">The number to be printed.</param>
-        public void Print(int number)
+        /// <param name="numbers">The number to be printed.</param>
+        public void Print(IEnumerable<int> numbers)
         {
-            Console.WriteLine(number);
+            foreach (var item in numbers)
+            {
+                Console.WriteLine(item);
+            }
         }
     }
 }

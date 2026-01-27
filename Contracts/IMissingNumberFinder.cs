@@ -3,6 +3,7 @@
     public interface IMissingNumberFinder
     {
         string AlgorithmName { get; }
-        int FindMissingNumber(int[] numbers);
+        bool SupportFindingMultipleNumbers { get; }
+        IEnumerable<int> FindMissingNumber(int[] numbers);
     }
 }

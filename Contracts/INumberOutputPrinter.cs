@@ -2,6 +2,6 @@
 {
     public interface INumberOutputPrinter
     {
-        void Print(int number);
+        void Print(IEnumerable<int> numbers);
     }
 }

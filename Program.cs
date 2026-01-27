@@ -14,6 +14,7 @@ service.AddSingleton<IAlgorithmFactory, AlgorithmFactory>();
 
 service.AddTransient<IMissingNumberFinder, GaussianMissingNumberFinder>();
 service.AddTransient<IMissingNumberFinder, XORMissingNumberFinder>();
+service.AddTransient<IMissingNumberFinder, DictionaryMissingNumberFinder>();
 
 
 service.AddTransient<MissingNumberFinderConsoleApplication>();

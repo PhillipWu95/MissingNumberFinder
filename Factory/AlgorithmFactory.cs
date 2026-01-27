@@ -8,8 +8,8 @@ namespace MissingNumberFinder.Factory
     {
         public IMissingNumberFinder CreateAlgorithm(AlgorithmDataContext context)
         {
-            var result = _finder.FirstOrDefault(f => f.AlgorithmName == context.UserInputAlgorithm);
-            return result ?? throw new InvalidOperationException();
+            var result = _finder.FirstOrDefault(f => f.AlgorithmName == context.UserInputAlgorithm && f.SupportFindingMultipleNumbers);
+            return result ?? _finder.First(f => f.AlgorithmName == "Dictionary");
         }
     }
 }
