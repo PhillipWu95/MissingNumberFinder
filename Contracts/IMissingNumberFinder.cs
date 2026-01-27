@@ -4,6 +4,6 @@
     {
         string AlgorithmName { get; }
         bool SupportFindingMultipleNumbers { get; }
-        IEnumerable<int> FindMissingNumber(int[] numbers);
+        Task<IEnumerable<int>> FindMissingNumberAsync(int[] numbers, CancellationToken cancellationToken);
     }
 }

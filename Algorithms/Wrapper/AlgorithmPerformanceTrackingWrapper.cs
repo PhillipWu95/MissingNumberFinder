@@ -15,11 +15,11 @@ namespace MissingNumberFinder.Algorithms.Wrapper
 
         public bool SupportFindingMultipleNumbers => _finder.SupportFindingMultipleNumbers;
 
-        public IEnumerable<int> FindMissingNumber(int[] numbers)
+        public async Task<IEnumerable<int>> FindMissingNumberAsync(int[] numbers, CancellationToken cancellationToken)
         {
             var ws = new Stopwatch();
             ws.Start();
-            var result = _finder.FindMissingNumber(numbers);
+            var result = await _finder.FindMissingNumberAsync(numbers, cancellationToken);
             ws.Stop();
             _logger.Log(LogLevel.Information, "The {AlgorithmName} runs for {ElapsedTime}", AlgorithmName, ws.Elapsed);
             return result;

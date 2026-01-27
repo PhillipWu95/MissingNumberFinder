@@ -9,7 +9,7 @@ namespace MissingNumberFinder
         IAlgorithmFactory _algorithmFactory,
         INumberOutputPrinter _outputPrinter)
     {
-        public void Run()
+        public async Task Run(CancellationToken cancellationToken)
         {
             try
             {
@@ -17,7 +17,7 @@ namespace MissingNumberFinder
                 var numbers = _numberInputHandler.GetNumberFromInput();
                 Console.WriteLine("Please choose an algorithm:");
                 var dataContext = _algorithmDataContextInputProvider.CreateDataContext();
-                var missingNumber = _algorithmFactory.CreateAlgorithm(dataContext).FindMissingNumber(numbers);
+                var missingNumber = await _algorithmFactory.CreateAlgorithm(dataContext).FindMissingNumberAsync(numbers, cancellationToken);
                 Console.Write("The missing number is:");
                 _outputPrinter.Print(missingNumber);
             }

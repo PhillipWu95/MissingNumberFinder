@@ -10,11 +10,18 @@ namespace MissingNumberFinder.Algorithms
 
         public bool SupportFindingMultipleNumbers => true;
 
-        public IEnumerable<int> FindMissingNumber(int[] numbers)
+        public async Task<IEnumerable<int>> FindMissingNumberAsync(int[] numbers, CancellationToken cancellationToken)
         {
+            cancellationToken.ThrowIfCancellationRequested();
             var dict = new Dictionary<int, int>(numbers.Length);
+
             for (var i = 0; i<numbers.Length; i++)
             {
+                if(i % 5000 == 0)
+                {
+                    cancellationToken.ThrowIfCancellationRequested();
+                    await Task.Yield();
+                }
                 _ = dict.TryGetValue(i, out _) ? dict[i] += 1 : dict[i] = 1;
                 _ = dict.TryGetValue(numbers[i], out _) ? dict[numbers[i]] += 1 : dict[numbers[i]] = 1;
             }

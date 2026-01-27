@@ -27,13 +27,9 @@ var provider = service.BuildServiceProvider();
 
 var app = provider.GetRequiredService<MissingNumberFinderConsoleApplication>();
 
-//var app = new MissingNumberFinderConsoleApplication(
-//    new ConsolerInputProvider(),
-//    new AlgorithmDataContextConsoleInputProvider(),
-//    new AlgorithmFactory(),
-//    new ConsoleNumberPrinter()
-//    );
+using var tokenSource = new CancellationTokenSource();
+var cancellationToken = tokenSource.Token;
 while (true) {
-    app.Run();
+    await app.Run(cancellationToken);
 }
        

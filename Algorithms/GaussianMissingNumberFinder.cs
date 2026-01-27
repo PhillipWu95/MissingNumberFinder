@@ -15,11 +15,12 @@ namespace MissingNumberFinder.Algorithms
         /// </summary>
         /// <param name="numbers">The list of number to be calculated.</param>
         /// <returns>The value of the missing integer.</returns>
-        public IEnumerable<int> FindMissingNumber(int[] numbers)
+        public Task<IEnumerable<int>> FindMissingNumberAsync(int[] numbers, CancellationToken cancellationToken)
         {
+            cancellationToken.ThrowIfCancellationRequested();
             var maxNumber = numbers.Length; // The length of the array represents the max possible number according to the requirement
             var maximumSum = (1 + maxNumber) * numbers.Length / 2; // Calculates the Gaussian sum of (1 + n) * n / 2
-            return [maximumSum - numbers.Sum()];
+            return Task.FromResult((IEnumerable<int>)[maximumSum - numbers.Sum()]);
         }
     }
 }
