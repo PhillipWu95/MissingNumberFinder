@@ -1,4 +1,5 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Logging;
 using MissingNumberFinder;
 using MissingNumberFinder.Algorithms;
 using MissingNumberFinder.Contracts;
@@ -7,10 +8,13 @@ using MissingNumberFinder.Factory.Contracts;
 
 var service = new ServiceCollection();
 
+service.AddLogging(builder => builder.AddConsole());
+
 service.AddTransient<INumberInputProvider, ConsolerInputProvider>();
 service.AddTransient<INumberOutputPrinter, ConsoleNumberPrinter>();
 service.AddTransient<IAlgorithmDataContextInputProvider, AlgorithmDataContextConsoleInputProvider>();
 service.AddSingleton<IAlgorithmFactory, AlgorithmFactory>();
+
 
 service.AddTransient<IMissingNumberFinder, GaussianMissingNumberFinder>();
 service.AddTransient<IMissingNumberFinder, XORMissingNumberFinder>();
