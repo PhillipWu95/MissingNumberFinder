@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MissingNumberFinder", "Miss
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MissingNumberFinder.Test", "MissingNumberFinder.Test\MissingNumberFinder.Test.csproj", "{9AEA2566-D73B-4963-943A-5A927393E135}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MissingNumberFinder.API", "MissingNumberFinder.API\MissingNumberFinder.API.csproj", "{3885EA7C-AA94-415D-B2AC-6FBEE92DE025}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{9AEA2566-D73B-4963-943A-5A927393E135}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9AEA2566-D73B-4963-943A-5A927393E135}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9AEA2566-D73B-4963-943A-5A927393E135}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3885EA7C-AA94-415D-B2AC-6FBEE92DE025}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3885EA7C-AA94-415D-B2AC-6FBEE92DE025}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3885EA7C-AA94-415D-B2AC-6FBEE92DE025}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3885EA7C-AA94-415D-B2AC-6FBEE92DE025}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
